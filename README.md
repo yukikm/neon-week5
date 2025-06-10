@@ -57,4 +57,55 @@ TokenIndex is a simple dApp that lets users deposit a single token and automatic
 
 ### Mock Code
 
-- contract
+- contract: (TokenIndex.sol)[https://github.com/yukikm/neon-week5/blob/main/contracts/TokenIndex.sol]
+- test: (tokenindex.test.js)[https://github.com/yukikm/neon-week5/blob/main/test/tokenindex.test.js]
+
+```
+  TokenIndex
+    Deployment
+      ✔ Should set the correct deposit token
+      ✔ Should set the correct raydium program
+      ✔ Should set the correct name and symbol
+      ✔ Should set the owner correctly
+      ✔ Should initialize with zero total weight
+      ✔ Should initialize with zero next pool ID
+      ✔ Should revert with zero addresses
+    Pool Management
+      Adding Pool Allocations
+        ✔ Should add a pool allocation correctly
+        ✔ Should revert when adding pool with zero addresses
+        ✔ Should revert when adding pool with invalid weight
+        ✔ Should revert when total weight exceeds maximum
+        ✔ Should revert when adding duplicate pool
+        ✔ Should only allow owner to add pools
+      Updating Pool Allocations
+        ✔ Should update pool allocation correctly
+        ✔ Should deactivate pool
+        ✔ Should revert when updating non-existent pool
+        ✔ Should revert when setting active pool with zero weight
+        ✔ Should only allow owner to update pools
+    Deposit and Redeem
+      Deposit
+        ✔ Should revert with amount less than minimum deposit
+        ✔ Should revert when no pools are configured
+      Redeem
+        ✔ Should revert when user has insufficient balance
+    View Functions
+      ✔ Should return correct user position
+      ✔ Should return correct active pool count
+      ✔ Should return correct pool allocation details
+    Owner Functions
+      ✔ Should allow owner to rebalance
+      ✔ Should only allow owner to rebalance
+      ✔ Should allow owner to emergency withdraw
+      ✔ Should only allow owner to emergency withdraw
+    Constants
+      ✔ Should have correct constants
+    ERC20 Functionality
+      ✔ Should have correct ERC20 properties
+    Integration Scenarios
+      ✔ Should handle multiple pool operations
+
+
+  31 passing (607ms)
+```
